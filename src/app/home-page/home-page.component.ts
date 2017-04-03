@@ -12,6 +12,7 @@ import { ArticleService } from './../article.service';
 })
 export class HomePageComponent implements OnInit {
   articles: Article[];
+  articleFilter = "all";
 
   constructor(private router: Router, private articleService: ArticleService) { }
 
@@ -30,6 +31,29 @@ export class HomePageComponent implements OnInit {
       return "truthy";
     } else {
       return "falsey";
+    }
+  }
+
+  filterArticles(event){
+    if(event=="all"){
+      this.articleFilter = "all";
+    } else if (event == "real-fake"){
+      this.articleFilter = "real-fake";
+    } else {
+      this.articleFilter = "fake-real";
+
+    }
+  }
+
+  checkFilter(article){
+    if(this.articleFilter=="all"){
+      return "showArticle";
+    }else if(this.articleFilter=="real-fake" && article.real == true){
+      return "showArticle";
+    }else if(this.articleFilter=="fake-real" && article.real == false){
+      return "showArticle";
+    }else{
+      return "hideArticle";
     }
   }
 

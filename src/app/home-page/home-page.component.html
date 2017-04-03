@@ -1,8 +1,16 @@
-<div class="panel panel-default" *ngFor="let article of articles">
-  <div class="panel panel-heading" (click)='goToDetailPage(article)'>
-    <h3 [class]='isTrue(article)'>{{article.title}}</h3>
-  </div>
-  <div class="panel panel-body">
-    <h5>{{article.author}}</h5>
+<select (change)='filterArticles($event.target.value)'>
+  <option value="all" default>All</option>
+  <option value="real-fake">Real Fake</option>
+  <option value="fake-real">Fake Real</option>
+</select>
+
+<div *ngFor="let article of articles">
+  <div class="panel panel-default" [id]="checkFilter(article)">
+    <div class="panel panel-heading" (click)='goToDetailPage(article)'>
+      <h3 [class]='isTrue(article)'>{{article.title}}</h3>
+    </div>
+    <div class="panel panel-body">
+      <h5>{{article.author}}</h5>
+    </div>
   </div>
 </div>
