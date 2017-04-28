@@ -22,7 +22,7 @@ You will need the following software properly installed on your computer.
 If you wish to run the app locally, please follow the following instructions
 
 * `git clone https://github.com/ccbpeden/fake-real-news.git` this repository
-* `cd senator-stable`
+* `cd fake-real-news`
 * `npm install`
 * `bower install`
 * place the api-keys.ts file provided to you by the author in the fake-real-news/src/app folder
